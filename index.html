@@ -342,219 +342,204 @@
 
 
     <!-- CART POPUP -->
-    <div id="cart-overlay" class="cart-overlay">
+<div id="checkout-overlay" class="checkout-overlay">
 
-        <div class="cart">
+    <div class="checkout-box">
 
-            <button
-                class="close-cart"
-                onclick="closeCart()">
+        <button
+            class="close-checkout"
+            onclick="closeCheckout()">
+            ×
+        </button>
 
-                ✕
+        <h2>Checkout 🛍️</h2>
 
-            </button>
+        <p class="checkout-subtitle">
+            Complete your order below.
+        </p>
 
-            <h2>
-                Your Cart 🛍️
-            </h2>
+        <div class="checkout-section">
 
-            <div id="cart-items">
+            <h3>Customer Details</h3>
 
-                <p class="empty-cart">
-                    Your cart is empty.
-                </p>
+            <div class="checkout-field">
+                <label for="customer-name">
+                    Full Name
+                </label>
 
+                <input
+                    type="text"
+                    id="customer-name"
+                    placeholder="Enter your full name">
             </div>
 
-            <div class="cart-total">
+            <div class="checkout-field">
+                <label for="customer-phone">
+                    Phone Number
+                </label>
 
-                <strong>
-                    Total:
-                </strong>
-
-                <strong id="cart-total">
-                    Rs 0
-                </strong>
-
+                <input
+                    type="tel"
+                    id="customer-phone"
+                    placeholder="Enter your phone number">
             </div>
 
-            <button
-                class="checkout-button"
-                onclick="openCheckout()">
+            <div class="checkout-field">
+                <label for="customer-address">
+                    Delivery Address
+                </label>
 
-                Proceed to Checkout
-
-            </button>
+                <textarea
+                    id="customer-address"
+                    placeholder="Enter your delivery address"></textarea>
+            </div>
 
         </div>
 
-    </div>
+
+        <div class="checkout-section">
+
+            <h3>Payment Method</h3>
+
+            <div class="payment-options">
+
+                <label class="payment-option">
+
+                    <input
+                        type="radio"
+                        name="payment"
+                        value="card">
+
+                    <div class="payment-option-content">
+
+                        <span class="payment-option-title">
+                            💳 Card
+                        </span>
+
+                        <span class="payment-option-description">
+                            Visa / Mastercard / Amex
+                        </span>
+
+                    </div>
+
+                </label>
 
 
-    <!-- CHECKOUT POPUP -->
-    <div id="checkout-overlay" class="checkout-overlay">
+                <label class="payment-option">
 
-        <div class="checkout-box">
+                    <input
+                        type="radio"
+                        name="payment"
+                        value="paypal">
 
-            <button class="checkout-button" onclick="openCheckout()">
-    Proceed to Checkout
-            </button>
+                    <div class="payment-option-content">
 
-            <h2>
-                Checkout 🛍️
-            </h2>
+                        <span class="payment-option-title">
+                            🅿️ PayPal
+                        </span>
 
-            <p class="checkout-subtitle">
-                Complete your order below.
-            </p>
+                    </div>
 
-
-            <!-- CUSTOMER INFORMATION -->
-
-            <h3>
-                👤 Delivery Information
-            </h3>
-
-            <label>
-                Full Name
-            </label>
-
-            <input
-                type="text"
-                id="customer-name"
-                placeholder="Enter your full name">
+                </label>
 
 
-            <label>
-                Phone Number
-            </label>
+                <label class="payment-option">
 
-            <input
-                type="tel"
-                id="customer-phone"
-                placeholder="+230 XXXXXXXX">
+                    <input
+                        type="radio"
+                        name="payment"
+                        value="googlepay">
+
+                    <div class="payment-option-content">
+
+                        <span class="payment-option-title">
+                            G Google Pay
+                        </span>
+
+                    </div>
+
+                </label>
 
 
-            <label>
-                Delivery Address
-            </label>
+                <label class="payment-option">
 
-            <textarea
-                id="customer-address"
-                placeholder="Enter your full delivery address"></textarea>
+                    <input
+                        type="radio"
+                        name="payment"
+                        value="applepay">
+
+                    <div class="payment-option-content">
+
+                        <span class="payment-option-title">
+                             Apple Pay
+                        </span>
+
+                    </div>
+
+                </label>
 
 
-            <!-- PAYMENT METHODS -->
+                <label class="payment-option">
 
-            <h3>
-                💳 Payment Method
-            </h3>
+                    <input
+                        type="radio"
+                        name="payment"
+                        value="arrival">
 
-            <label class="payment-option">
+                    <div class="payment-option-content">
 
-                <input
-                    type="radio"
-                    name="payment"
-                    value="card">
+                        <span class="payment-option-title">
+                            💵 Pay on Arrival
+                        </span>
 
-                💳 Card
+                    </div>
 
-                <span>
-                    Visa / Mastercard / Amex
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <div class="checkout-section">
+
+            <h3>Order Summary</h3>
+
+            <div
+                id="checkout-summary"
+                class="checkout-summary">
+            </div>
+
+            <div class="checkout-total-row">
+
+                <span>Total</span>
+
+                <span
+                    id="checkout-total"
+                    class="checkout-total">
+                    Rs 0
                 </span>
 
-            </label>
-
-
-            <label class="payment-option">
-
-                <input
-                    type="radio"
-                    name="payment"
-                    value="paypal">
-
-                🅿️ PayPal
-
-            </label>
-
-
-            <label class="payment-option">
-
-                <input
-                    type="radio"
-                    name="payment"
-                    value="googlepay">
-
-                📱 Google Pay
-
-            </label>
-
-
-            <label class="payment-option">
-
-                <input
-                    type="radio"
-                    name="payment"
-                    value="applepay">
-
-                🍎 Apple Pay
-
-            </label>
-
-
-            <label class="payment-option">
-
-                <input
-                    type="radio"
-                    name="payment"
-                    value="arrival">
-
-                💵 Pay on Arrival
-
-            </label>
-
-
-            <!-- ORDER SUMMARY -->
-
-            <h3>
-                📦 Order Summary
-            </h3>
-
-            <div id="checkout-summary">
-                Your cart is empty.
             </div>
-
-
-            <div class="checkout-total">
-
-                <strong>
-                    Total
-                </strong>
-
-                <strong id="checkout-total">
-                    Rs 0
-                </strong>
-
-            </div>
-
-
-            <button
-                class="place-order-button"
-                onclick="placeOrder()">
-
-                Place Order
-
-            </button>
-
-
-            <p class="secure-note">
-                🔒 Payment details are handled securely
-                by the payment provider.
-            </p>
 
         </div>
 
+
+        <button
+            class="place-order-button"
+            onclick="placeOrder()">
+
+            Place Order
+
+        </button>
+
+        <p class="secure-note">
+            🔒 Your information is kept private.
+        </p>
+
     </div>
+
+</div>
 
 
     <!-- ORDER SUCCESS -->
