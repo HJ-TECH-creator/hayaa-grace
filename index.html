@@ -219,45 +219,43 @@
 
             </div>
 
-            </div>
 
-    
             <!-- PRODUCT 5 -->
             <div class="product-card">
 
-               <div class="product-image blue">
+                <div class="product-image blue">
                     🧕🏻
-               </div>
+                </div>
 
-               <div class="product-info">
+                <div class="product-info">
 
-                     <h3>
-                         Blue Khimar
-                     </h3>
+                    <h3>
+                        Blue Khimar
+                    </h3>
 
-                     <p class="product-description">
-                         A stylish modest khimar with a cool colour.
-                     </p>
+                    <p class="product-description">
+                        A stylish modest khimar with a cool colour.
+                    </p>
 
-                     <div class="product-bottom">
+                    <div class="product-bottom">
 
-                         <strong>
-                             Rs 750
-                         </strong>
+                        <strong>
+                            Rs 750
+                        </strong>
 
-                         <button onclick="addToCart('Blue Khimar', 750)">
-                             Add to Cart
-                         </button>
+                        <button onclick="addToCart('Blue Khimar', 750)">
+                            Add to Cart
+                        </button>
 
-                         </div>
+                    </div>
 
-                     </div>
-
-                 </div>
+                </div>
 
             </div>
-    
-    
+
+
+        </div>
+
     </section>
 
 
@@ -382,9 +380,222 @@
 
             <button
                 class="checkout-button"
-                onclick="checkoutWhatsApp()">
+                onclick="openCheckout()">
 
-                Order on WhatsApp
+                Proceed to Checkout
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- CHECKOUT POPUP -->
+    <div id="checkout-overlay" class="checkout-overlay">
+
+        <div class="checkout-box">
+
+            <button
+                class="close-checkout"
+                onclick="closeCheckout()">
+
+                ✕
+
+            </button>
+
+            <h2>
+                Checkout 🛍️
+            </h2>
+
+            <p class="checkout-subtitle">
+                Complete your order below.
+            </p>
+
+
+            <!-- CUSTOMER INFORMATION -->
+
+            <h3>
+                👤 Delivery Information
+            </h3>
+
+            <label>
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                id="customer-name"
+                placeholder="Enter your full name">
+
+
+            <label>
+                Phone Number
+            </label>
+
+            <input
+                type="tel"
+                id="customer-phone"
+                placeholder="+230 XXXXXXXX">
+
+
+            <label>
+                Delivery Address
+            </label>
+
+            <textarea
+                id="customer-address"
+                placeholder="Enter your full delivery address"></textarea>
+
+
+            <!-- PAYMENT METHODS -->
+
+            <h3>
+                💳 Payment Method
+            </h3>
+
+            <label class="payment-option">
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="card">
+
+                💳 Card
+
+                <span>
+                    Visa / Mastercard / Amex
+                </span>
+
+            </label>
+
+
+            <label class="payment-option">
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="paypal">
+
+                🅿️ PayPal
+
+            </label>
+
+
+            <label class="payment-option">
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="googlepay">
+
+                📱 Google Pay
+
+            </label>
+
+
+            <label class="payment-option">
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="applepay">
+
+                🍎 Apple Pay
+
+            </label>
+
+
+            <label class="payment-option">
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="arrival">
+
+                💵 Pay on Arrival
+
+            </label>
+
+
+            <!-- ORDER SUMMARY -->
+
+            <h3>
+                📦 Order Summary
+            </h3>
+
+            <div id="checkout-summary">
+                Your cart is empty.
+            </div>
+
+
+            <div class="checkout-total">
+
+                <strong>
+                    Total
+                </strong>
+
+                <strong id="checkout-total">
+                    Rs 0
+                </strong>
+
+            </div>
+
+
+            <button
+                class="place-order-button"
+                onclick="placeOrder()">
+
+                Place Order
+
+            </button>
+
+
+            <p class="secure-note">
+                🔒 Payment details are handled securely
+                by the payment provider.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ORDER SUCCESS -->
+    <div id="order-success-overlay" class="checkout-overlay">
+
+        <div class="checkout-box success-box">
+
+            <div class="success-icon">
+                ✅
+            </div>
+
+            <h2>
+                Order Received!
+            </h2>
+
+            <p>
+                Thank you for shopping with
+                <strong>Hayaa & Grace</strong>.
+            </p>
+
+            <p>
+                Your order number is:
+            </p>
+
+            <h3 id="order-number">
+                HG-0000
+            </h3>
+
+            <p id="order-payment-status">
+                Your order has been received.
+            </p>
+
+            <button
+                class="shop-button"
+                onclick="closeOrderSuccess()">
+
+                Continue Shopping
 
             </button>
 
