@@ -1,312 +1,332 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="products">
 
-    <title>Hayaa & Grace | Modest Khimars</title>
-
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-    <!-- HEADER -->
-    <header>
-        <div class="logo">
-            Hayaa <span>&</span> Grace
-        </div>
-
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#shop">Khimars</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </nav>
-
-        <button class="cart-button" onclick="openCart()">
-            🛒 Cart <span id="cart-count">0</span>
-        </button>
-    </header>
-
-
-    <!-- HERO -->
-    <section id="home" class="hero">
-
-        <div class="hero-text">
-
-            <p class="small-title">MODEST • ELEGANT • BEAUTIFUL</p>
-
-            <h1>
-                Modesty with<br>
-                <span>Grace.</span>
-            </h1>
-
-            <p>
-                Discover beautiful khimars designed for comfort,
-                elegance and everyday modesty.
-            </p>
-
-            <a href="#shop" class="shop-button">
-                Shop Khimars
-            </a>
-
-        </div>
-
-        <div class="hero-design">
+    <!-- PRODUCT 1 -->
+    <div class="product-card">
+        <div class="product-image">
             🧕🏻
         </div>
 
-    </section>
-
-
-    <!-- SHOP -->
-    <section id="shop" class="shop-section">
-
-        <p class="small-title">OUR COLLECTION</p>
-
-        <h2>Beautiful Khimars</h2>
-
-        <p class="section-description">
-            Explore our collection of elegant and comfortable khimars.
-        </p>
-
-
-        <div class="products">
-
-            <!-- PRODUCT 1 -->
-            <div class="product-card">
-
-                <div class="product-image">
-                    🧕
-                </div>
-
-                <div class="product-info">
-
-                    <h3>Classic Black Khimar</h3>
-
-                    <p class="product-description">
-                        A simple and elegant everyday khimar.
-                    </p>
-
-                    <div class="product-bottom">
-
-                        <strong>Rs 650</strong>
-
-                        <button onclick="addToCart('Classic Black Khimar', 650)">
-                            Add to Cart
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- PRODUCT 2 -->
-            <div class="product-card">
-
-                <div class="product-image pink">
-                    🧕🏻
-                </div>
-
-                <div class="product-info">
-
-                    <h3>Rose Khimar</h3>
-
-                    <p class="product-description">
-                        Soft, elegant and perfect for everyday wear.
-                    </p>
-
-                    <div class="product-bottom">
-
-                        <strong>Rs 750</strong>
-
-                        <button onclick="addToCart('Rose Khimar', 750)">
-                            Add to Cart
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- PRODUCT 3 -->
-            <div class="product-card">
-
-                <div class="product-image beige">
-                    🧕🏻
-                </div>
-
-                <div class="product-info">
-
-                    <h3>Sand Khimar</h3>
-
-                    <p class="product-description">
-                        A beautiful neutral shade for any outfit.
-                    </p>
-
-                    <div class="product-bottom">
-
-                        <strong>Rs 700</strong>
-
-                        <button onclick="addToCart('Sand Khimar', 700)">
-                            Add to Cart
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- PRODUCT 4 -->
-            <div class="product-card">
-
-                <div class="product-image green">
-                    🧕🏻
-                </div>
-
-                <div class="product-info">
-
-                    <h3>Olive Khimar</h3>
-
-                    <p class="product-description">
-                        A stylish modest khimar with a natural tone.
-                    </p>
-
-                    <div class="product-bottom">
-
-                        <strong>Rs 750</strong>
-
-                        <button onclick="addToCart('Olive Khimar', 750)">
-                            Add to Cart
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ABOUT -->
-    <section id="about" class="about-section">
-
-        <div>
-
-            <p class="small-title">ABOUT US</p>
-
-            <h2>Welcome to<br>Hayaa & Grace</h2>
-
-            <p>
-                Hayaa & Grace is a modest fashion business dedicated
-                to bringing beautiful, comfortable and elegant khimars
-                to women who value modesty and style.
+        <div class="product-info">
+            <h3>Classic Black Khimar</h3>
+            <p class="product-description">
+                A simple and elegant everyday khimar.
             </p>
 
-            <p>
-                Every piece is selected with care so you can feel
-                comfortable and confident in your modest wear.
-            </p>
-
-        </div>
-
-        <div class="about-box">
-            <span>🌸</span>
-            <h3>Modesty</h3>
-            <p>Beautifully simple.</p>
-
-            <span>✨</span>
-            <h3>Elegance</h3>
-            <p>Designed with grace.</p>
-        </div>
-
-    </section>
-
-
-    <!-- CONTACT -->
-    <section id="contact" class="contact-section">
-
-        <p class="small-title">GET IN TOUCH</p>
-
-        <h2>Contact Hayaa & Grace</h2>
-
-        <p>
-            Have a question about a khimar, size or delivery?
-            Contact us on WhatsApp.
-        </p>
-
-        <a
-            href="https://wa.me/2300000000"
-            target="_blank"
-            class="whatsapp-button">
-            💬 WhatsApp Us
-        </a>
-
-    </section>
-
-
-    <!-- CART POPUP -->
-    <div id="cart-overlay" class="cart-overlay">
-
-        <div class="cart">
-
-            <button class="close-cart" onclick="closeCart()">
-                ✕
-            </button>
-
-            <h2>Your Cart 🛍️</h2>
-
-            <div id="cart-items">
-                <p class="empty-cart">
-                    Your cart is empty.
-                </p>
+            <div class="product-bottom">
+                <strong>Rs 650</strong>
+                <button onclick="addToCart('Classic Black Khimar', 650)">
+                    Add to Cart
+                </button>
             </div>
-
-            <div class="cart-total">
-                <strong>Total:</strong>
-                <strong id="cart-total">Rs 0</strong>
-            </div>
-
-            <button
-                class="checkout-button"
-                onclick="checkoutWhatsApp()">
-                Order on WhatsApp
-            </button>
-
         </div>
-
     </div>
 
 
-    <!-- FOOTER -->
-    <footer>
-
-        <div class="logo">
-            Hayaa <span>&</span> Grace
+    <!-- PRODUCT 2 -->
+    <div class="product-card">
+        <div class="product-image pink">
+            🧕🏻
         </div>
 
-        <p>
-            Modesty • Elegance • Grace
-        </p>
+        <div class="product-info">
+            <h3>Rose Khimar</h3>
+            <p class="product-description">
+                Soft, elegant and perfect for everyday wear.
+            </p>
 
-        <p class="copyright">
-            © 2026 Hayaa & Grace. All rights reserved.
-        </p>
+            <div class="product-bottom">
+                <strong>Rs 750</strong>
+                <button onclick="addToCart('Rose Khimar', 750)">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
 
-    </footer>
+
+    <!-- PRODUCT 3 -->
+    <div class="product-card">
+        <div class="product-image beige">
+            🧕🏻
+        </div>
+
+        <div class="product-info">
+            <h3>Sand Khimar</h3>
+            <p class="product-description">
+                A beautiful neutral shade for any outfit.
+            </p>
+
+            <div class="product-bottom">
+                <strong>Rs 700</strong>
+                <button onclick="addToCart('Sand Khimar', 700)">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
 
 
-    <script src="script.js"></script>
+    <!-- PRODUCT 4 -->
+    <div class="product-card">
+        <div class="product-image green">
+            🧕🏻
+        </div>
 
-</body>
-</html>
+        <div class="product-info">
+            <h3>Olive Khimar</h3>
+            <p class="product-description">
+                A stylish modest khimar with a natural tone.
+            </p>
+
+            <div class="product-bottom">
+                <strong>Rs 750</strong>
+                <button onclick="addToCart('Olive Khimar', 750)">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- PRODUCT 5 -->
+    <div class="product-card">
+        <div class="product-image">
+            🧕🏻
+        </div>
+
+        <div class="product-info">
+            <h3>Mocha Khimar</h3>
+            <p class="product-description">
+                A warm and elegant khimar for everyday styling.
+            </p>
+
+            <div class="product-bottom">
+                <strong>Rs 800</strong>
+                <button onclick="addToCart('Mocha Khimar', 800)">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- PRODUCT 6 -->
+    <div class="product-card">
+        <div class="product-image">
+            🧕🏻
+        </div>
+
+        <div class="product-info">
+            <h3>Navy Khimar</h3>
+            <p class="product-description">
+                A graceful navy shade that suits every occasion.
+            </p>
+
+            <div class="product-bottom">
+                <strong>Rs 800</strong>
+                <button onclick="addToCart('Navy Khimar', 800)">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- PRODUCT 7 -->
+    <div class="product-card">
+        <div class="product-image">
+            🧕🏻
+        </div>
+
+        <div class="product-info">
+            <h3>Chocolate Khimar</h3>
+            <p class="product-description">
+                A rich chocolate colour with a timeless look.
+            </p>
+
+            <div class="product-bottom">
+                <strong>Rs 850</strong>
+                <button onclick="addToCart('Chocolate Khimar', 850)">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- PRODUCT 8 -->
+    <div class="product-card">
+        <div class="product-image pink">
+            🧕🏻
+        </div>
+
+        <div class="product-info">
+            <h3>Dusty Pink Khimar</h3>
+            <p class="product-description">
+                A soft pink shade with a beautiful feminine touch.
+            </p>
+
+            <div class="product-bottom">
+                <strong>Rs 800</strong>
+                <button onclick="addToCart('Dusty Pink Khimar', 800)">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- PRODUCT 9 -->
+    <div class="product-card">
+        <div class="product-image beige">
+            🧕🏻
+        </div>
+
+        <div class="product-info">
+            <h3>Cream Khimar</h3>
+            <p class="product-description">
+                A clean and elegant cream colour for any outfit.
+            </p>
+
+            <div class="product-bottom">
+                <strong>Rs 750</strong>
+                <button onclick="addToCart('Cream Khimar', 750)">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- PRODUCT 10 -->
+    <div class="product-card">
+        <div class="product-image">
+            🧕🏻
+        </div>
+
+        <div class="product-info">
+            <h3>Burgundy Khimar</h3>
+            <p class="product-description">
+                A deep burgundy shade for a sophisticated look.
+            </p>
+
+            <div class="product-bottom">
+                <strong>Rs 850</strong>
+                <button onclick="addToCart('Burgundy Khimar', 850)">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- PRODUCT 11 -->
+    <div class="product-card">
+        <div class="product-image green">
+            🧕🏻
+        </div>
+
+        <div class="product-info">
+            <h3>Sage Green Khimar</h3>
+            <p class="product-description">
+                A calm and natural green shade with a graceful finish.
+            </p>
+
+            <div class="product-bottom">
+                <strong>Rs 800</strong>
+                <button onclick="addToCart('Sage Green Khimar', 800)">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- PRODUCT 12 -->
+    <div class="product-card">
+        <div class="product-image beige">
+            🧕🏻
+        </div>
+
+        <div class="product-info">
+            <h3>Taupe Khimar</h3>
+            <p class="product-description">
+                A versatile neutral khimar for everyday wear.
+            </p>
+
+            <div class="product-bottom">
+                <strong>Rs 800</strong>
+                <button onclick="addToCart('Taupe Khimar', 800)">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- PRODUCT 13 -->
+    <div class="product-card">
+        <div class="product-image">
+            🧕🏻
+        </div>
+
+        <div class="product-info">
+            <h3>Plum Khimar</h3>
+            <p class="product-description">
+                A beautiful plum shade for a distinctive modest look.
+            </p>
+
+            <div class="product-bottom">
+                <strong>Rs 850</strong>
+                <button onclick="addToCart('Plum Khimar', 850)">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- PRODUCT 14 -->
+    <div class="product-card">
+        <div class="product-image">
+            🧕🏻
+        </div>
+
+        <div class="product-info">
+            <h3>Stone Khimar</h3>
+            <p class="product-description">
+                A modern neutral tone with a simple elegant style.
+            </p>
+
+            <div class="product-bottom">
+                <strong>Rs 750</strong>
+                <button onclick="addToCart('Stone Khimar', 750)">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- PRODUCT 15 -->
+    <div class="product-card">
+        <div class="product-image">
+            🧕🏻
+        </div>
+
+        <div class="product-info">
+            <h3>Midnight Khimar</h3>
+            <p class="product-description">
+                A deep elegant shade designed for a timeless modest look.
+            </p>
+
+            <div class="product-bottom">
+                <strong>Rs 900</strong>
+                <button onclick="addToCart('Midnight Khimar', 900)">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>
