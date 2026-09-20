@@ -1,0 +1,549 @@
+let cart = [];
+
+
+/* =========================
+   ADD PRODUCT TO CART
+========================= */
+
+function addToCart(name, price) {
+
+    const existingProduct = cart.find(
+        product => product.name === name
+    );
+
+    if (existingProduct) {
+        existingProduct.quantity++;
+    } else {
+        cart.push({
+            name: name,
+            price: price,
+            quantity: 1
+        });
+    }
+
+    updateCart();
+
+    alert(name + " added to your cart! 🛍️");
+}
+
+
+/* =========================
+   UPDATE CART
+========================= */
+
+function updateCart() {
+
+    const cartItems = document.getElementById("cart-items");
+    const cartCount = document.getElementById("cart-count");
+    const cartTotal = document.getElementById("cart-total");
+
+    cartItems.innerHTML = "";
+
+    let total = 0;
+    let itemCount = 0;
+
+    if (cart.length === 0) {
+
+        cartItems.innerHTML =
+            '<p class="empty-cart">Your cart is empty.</p>';
+
+    }
+
+    cart.forEach((product, index) => {
+
+        const itemTotal =
+            product.price * product.quantity;
+
+        total += itemTotal;
+        itemCount += product.quantity;
+
+        const item = document.createElement("div");
+
+        item.className = "cart-item";
+
+        item.innerHTML = `
+
+            <div>
+
+                <div class="cart-item-name">
+                    ${product.name}
+                </div>
+
+                <div>
+                    Rs ${product.price}
+                </div>
+
+                <div class="quantity-controls">
+
+                    <button onclick="decreaseQuantity(${index})">
+                        −
+                    </button>
+
+                    <span>
+                        ${product.quantity}
+                    </span>
+
+                    <button onclick="increaseQuantity(${index})">
+                        +
+                    </button>
+
+                </div>
+
+                <button
+                    class="remove-button"
+                    onclick="removeFromCart(${index})">
+
+                    Remove
+
+                </button>
+
+            </div>
+
+            <strong>
+                Rs ${itemTotal}
+            </strong>
+
+        `;
+
+        cartItems.appendChild(item);
+
+    });
+
+    cartCount.textContent = itemCount;
+
+    cartTotal.textContent =
+        "Rs " + total;
+}
+
+
+/* =========================
+   INCREASE QUANTITY
+========================= */
+
+function increaseQuantity(index) {
+
+    cart[index].quantity++;
+
+    updateCart();
+
+}
+
+
+/* =========================
+   DECREASE QUANTITY
+========================= */
+
+function decreaseQuantity(index) {
+
+    if (cart[index].quantity > 1) {
+
+        cart[index].quantity--;
+
+    } else {
+
+        cart.splice(index, 1);
+
+    }
+
+    updateCart();
+
+}
+
+
+/* =========================
+   REMOVE PRODUCT
+========================= */
+
+function removeFromCart(index) {
+
+    cart.splice(index, 1);
+
+    updateCart();
+
+}
+
+
+/* =========================
+   OPEN CART
+========================= */
+
+function openCart() {
+
+    document.getElementById("cart-overlay").style.display =
+        "block";
+
+}
+
+
+/* =========================
+   CLOSE CART
+========================= */
+
+function closeCart() {
+
+    document.getElementById("cart-overlay").style.display =
+        "none";
+
+}
+
+
+/* =========================
+   OPEN CHECKOUT
+========================= */
+
+function openCheckout() {
+
+    if (cart.length === 0) {
+
+        alert("Your cart is empty.");
+
+        return;
+
+    }
+
+    closeCart();
+
+    updateCheckoutSummary();
+
+    document.getElementById("checkout-overlay").style.display =
+        "block";
+
+}
+
+
+/* =========================
+   CLOSE CHECKOUT
+========================= */
+
+function closeCheckout() {
+
+    document.getElementById("checkout-overlay").style.display =
+        "none";
+
+}
+
+
+/* =========================
+   CHECKOUT SUMMARY
+========================= */
+
+function updateCheckoutSummary() {
+
+    const summary =
+        document.getElementById("checkout-summary");
+
+    const totalElement =
+        document.getElementById("checkout-total");
+
+    if (!summary || !totalElement) {
+        return;
+    }
+
+    summary.innerHTML = "";
+
+    let total = 0;
+
+    cart.forEach(product => {
+
+        const productTotal =
+            product.price * product.quantity;
+
+        total += productTotal;
+
+        const item =
+            document.createElement("div");
+
+        item.className = "checkout-item";
+
+        item.innerHTML = `
+            <span>
+                ${product.name} × ${product.quantity}
+            </span>
+
+            <strong>
+                Rs ${productTotal}
+            </strong>
+        `;
+
+        summary.appendChild(item);
+
+    });
+
+    totalElement.textContent =
+        "Rs " + total;
+
+}
+
+
+/* =========================
+   PLACE ORDER
+========================= */
+
+function placeOrder() {
+
+    if (cart.length === 0) {
+
+        alert("Your cart is empty.");
+
+        return;
+
+    }
+
+
+    const name =
+        document.getElementById("customer-name").value.trim();
+
+    const phone =
+        document.getElementById("customer-phone").value.trim();
+
+    const address =
+        document.getElementById("customer-address").value.trim();
+
+
+    const selectedPayment =
+        document.querySelector(
+            'input[name="payment"]:checked'
+        );
+
+
+    /* CHECK CUSTOMER DETAILS */
+
+    if (!name) {
+
+        alert("Please enter your name.");
+
+        return;
+
+    }
+
+    if (!phone) {
+
+        alert("Please enter your phone number.");
+
+        return;
+
+    }
+
+    if (!address) {
+
+        alert("Please enter your delivery address.");
+
+        return;
+
+    }
+
+
+    /* CHECK PAYMENT METHOD */
+
+    if (!selectedPayment) {
+
+        alert("Please choose a payment method.");
+
+        return;
+
+    }
+
+
+    const paymentMethod =
+        selectedPayment.value;
+
+
+    /*
+       ONLINE PAYMENTS ARE NOT CONNECTED YET.
+
+       We don't pretend that a card or PayPal payment
+       has been completed before a real payment provider
+       is connected.
+    */
+
+    if (paymentMethod !== "arrival") {
+
+        alert(
+            "Online payment is not connected yet. " +
+            "For testing, please select Pay on Arrival."
+        );
+
+        return;
+
+    }
+
+
+    /* =========================
+       CALCULATE TOTAL
+    ========================= */
+
+    let total = 0;
+
+    cart.forEach(product => {
+
+        total +=
+            product.price * product.quantity;
+
+    });
+
+
+    /* =========================
+       GENERATE ORDER NUMBER
+    ========================= */
+
+    const orderNumber =
+        "HG-" +
+        Math.floor(
+            1000 + Math.random() * 9000
+        );
+
+
+    /* =========================
+       SAVE TEST ORDER LOCALLY
+    ========================= */
+
+    const order = {
+
+        orderNumber: orderNumber,
+
+        customer: {
+
+            name: name,
+
+            phone: phone,
+
+            address: address
+
+        },
+
+        products: cart,
+
+        total: total,
+
+        paymentMethod: "Pay on Arrival",
+
+        status: "Order received",
+
+        date: new Date().toISOString()
+
+    };
+
+
+    /*
+       This saves the order ONLY in this browser.
+
+       It does NOT send the order to Hayaa & Grace yet.
+    */
+
+    localStorage.setItem(
+        "hayaaGraceLastOrder",
+        JSON.stringify(order)
+    );
+
+
+    /* =========================
+       SHOW SUCCESS MESSAGE
+    ========================= */
+
+    document.getElementById("order-number").textContent =
+        orderNumber;
+
+    document.getElementById("order-payment-status").textContent =
+        "Payment: Pay on Arrival";
+
+
+    closeCheckout();
+
+    document.getElementById("order-success-overlay").style.display =
+        "block";
+
+
+    /* EMPTY CART */
+
+    cart = [];
+
+    updateCart();
+
+}
+
+
+/* =========================
+   CLOSE ORDER SUCCESS
+========================= */
+
+function closeOrderSuccess() {
+
+    document.getElementById(
+        "order-success-overlay"
+    ).style.display = "none";
+
+}
+
+
+/* =========================
+   WHATSAPP CHECKOUT
+========================= */
+
+function checkoutWhatsApp() {
+
+    if (cart.length === 0) {
+
+        alert("Your cart is empty.");
+
+        return;
+
+    }
+
+
+    let message =
+        "Assalamu Alaikum! 🌸%0A%0A" +
+        "I would like to order from Hayaa & Grace:%0A%0A";
+
+
+    let total = 0;
+
+
+    cart.forEach(product => {
+
+        const productTotal =
+            product.price * product.quantity;
+
+        total += productTotal;
+
+
+        message +=
+            "• " +
+            product.name +
+            " × " +
+            product.quantity +
+            " = Rs " +
+            productTotal +
+            "%0A";
+
+    });
+
+
+    message +=
+        "%0A*Total: Rs " +
+        total +
+        "*%0A%0A" +
+        "Please let me know the delivery details. Thank you! 🌷";
+
+
+    /*
+       WhatsApp number
+       Mauritius country code = 230
+    */
+
+    const phoneNumber =
+        "23058220949";
+
+
+    const whatsappURL =
+        "https://wa.me/" +
+        phoneNumber +
+        "?text=" +
+        message;
+
+
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
+
+}
